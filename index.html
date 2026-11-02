@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vitamin D ↔ Energy · Combined Evidence Dashboard</title>
+<style>
+:root{--ind:#4F46E5;--ind2:#A5B4FC;--ind3:#EEF2FF;--bg:#F8FAFC;--ln:#E5E7EB;--ink:#111827;--mut:#6B7280}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:14px}
+.app{display:flex;min-height:100vh}
+aside{width:210px;flex:0 0 210px;background:#fff;border-right:1px solid var(--ln);padding:16px 12px;position:sticky;top:0;height:100vh}
+.logo{display:flex;gap:8px;align-items:center;font-weight:700;margin-bottom:18px}.logo i{width:26px;height:26px;border-radius:7px;background:var(--ind);color:#fff;font-style:normal;display:flex;align-items:center;justify-content:center;font-size:13px}
+.sec{font-size:11px;color:var(--mut);margin:14px 8px 6px;text-transform:uppercase;letter-spacing:.05em}
+nav a{display:block;padding:7px 10px;border-radius:7px;color:var(--ink);text-decoration:none;font-size:13px}nav a.on,nav a:hover{background:var(--ind3);color:var(--ind)}
+main{flex:1;min-width:0}.top{height:48px;border-bottom:1px solid var(--ln);background:#fff;display:flex;align-items:center;padding:0 22px;font-size:13px;color:var(--mut)}.top b{color:var(--ind)}
+.cont{padding:20px 22px 36px}h1{font-size:20px;margin:0 0 3px}.lead{color:var(--mut);margin:0 0 16px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--ln);border-radius:12px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.04)}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s6{grid-column:span 6}.s8{grid-column:span 8}.s12{grid-column:span 12}
+.kh{display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:13px;gap:6px}
+.b{font-size:11.5px;border-radius:999px;padding:2px 8px;border:1px solid;font-weight:600;white-space:nowrap}.up{color:#047857;border-color:#6EE7B7;background:#ECFDF5}.dn{color:#B91C1C;border-color:#FCA5A5;background:#FEF2F2}.nt{color:var(--ind);border-color:var(--ind2);background:var(--ind3)}.am{color:#B45309;border-color:#FCD34D;background:#FFFBEB}
+.v{font-size:28px;font-weight:700;margin:6px 0 8px}.t{font-weight:600;font-size:13px}.m{color:var(--mut);font-size:12px;margin-top:3px}
+h2{font-size:15.5px;margin:0}.sub{margin:3px 0 0;color:var(--mut);font-size:12.5px}
+.foot{margin-top:8px;font-size:12.5px}.foot b{display:block}.foot span{color:var(--mut)}
+.chain{display:flex;align-items:stretch;gap:10px;margin-top:12px;flex-wrap:wrap}
+.node{flex:1;min-width:170px;border-radius:10px;padding:12px;background:#fff;border:1px solid var(--ind2)}.node b{display:block;color:var(--ind);font-size:12px;text-transform:uppercase;letter-spacing:.05em}.node .n{font-size:16px;font-weight:700;margin-top:4px}
+.arr{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ind);font-size:12px;font-weight:600;min-width:120px;text-align:center}.arr span:first-child{font-size:22px}
+.plain{margin-top:12px;background:var(--ind);color:#fff;border-radius:10px;padding:12px 14px}.plain b{display:block;color:#C7D2FE;font-size:12px;text-transform:uppercase;letter-spacing:.05em}.plain p{margin:4px 0 0;font-size:14px}
+.pill{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.pill button{border:1px solid var(--ln);background:#fff;border-radius:999px;padding:4px 11px;font:inherit;font-size:12px;cursor:pointer}.pill button.on{background:var(--ind);color:#fff;border-color:var(--ind)}button:focus-visible{outline:2px solid var(--ind);outline-offset:2px}
+table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:var(--mut);font-weight:600;border-bottom:1px solid var(--ln);padding:8px}td{border-bottom:1px solid #F3F4F6;padding:7px 8px;vertical-align:top}
+.tw{overflow-x:auto}
+.rate{display:flex;gap:10px;align-items:center;border:1px solid var(--ln);border-radius:10px;padding:10px 12px;margin-bottom:10px}.ri{width:34px;height:34px;border-radius:50%;flex:0 0 34px}.rate small{display:block;color:var(--mut);font-size:12px}.rate b{font-size:16px}
+.hdr{grid-column:span 12;margin:10px 0 -4px;font-size:13px;font-weight:700;color:var(--ind);text-transform:uppercase;letter-spacing:.06em}
+ol{font-size:12.5px;padding-left:18px;margin:6px 0 0;color:#374151}ol li{margin-bottom:4px}
+@media(max-width:1100px){.s3{grid-column:span 6}.s4,.s6,.s8{grid-column:span 12}}@media(max-width:760px){aside{display:none}.s3{grid-column:span 12}.cont{padding:14px}.arr{min-width:100%;flex-direction:row;gap:6px}}
+@media print{aside{display:none}.card{break-inside:avoid}}
+</style></head><body><div class="app">
+<aside><div class="logo"><i>D</i>Longevity Analytics</div><div class="sec">Use case</div>
+<nav><a class="on" href="#ov">Overview</a><a href="#rel">How it fits together</a><a href="#corr">All correlations</a><a href="#ev">Evidence</a><a href="#refs">References</a></nav></aside>
+<main><div class="top">Home&nbsp;›&nbsp;Use cases&nbsp;›&nbsp;<b>Vitamin D ↔ Energy</b></div><div class="cont">
+<h1 id="ov">Vitamin D supplementation ↔ Energy levels</h1><p class="lead">Combining NHANES, RKI DEGS1 and PubMed · 23,814 participants with measured data</p>
+<div class="grid">
+<div class="card s3"><div class="kh">NHANES (USA)<span class="b nt">Survey + lab test</span></div><div class="v">16,180</div><div class="t">people with measured blood vitamin D</div><div class="m">Shows: supplements ↔ vitamin D level (Herrick et al., 2019)</div></div>
+<div class="card s3"><div class="kh">RKI DEGS1 (Germany)<span class="b nt">Survey + lab test</span></div><div class="v">6,995</div><div class="t">German adults with measured vitamin D</div><div class="m">Shows: how many people are low (Rabenberg et al., 2015)</div></div>
+<div class="card s3"><div class="kh">PubMed studies<span class="b nt">Trials</span></div><div class="v">639</div><div class="t">people in fatigue trials</div><div class="m">Shows: vitamin D ↔ fatigue (Nowak et al., 2016)</div></div>
+<div class="card s3" style="background:#4F46E5;color:#fff;border-color:#4F46E5"><div class="kh">Combined<span class="b" style="color:#fff;border-color:#C7D2FE">Total</span></div><div class="v">23,814</div><div class="t">participants with measured data</div><div class="m" style="color:#C7D2FE">One chain: supplement → vitamin D → energy</div></div>
+
+<div class="card s12" id="rel"><h2>How the three sources fit together</h2><p class="sub">No single dataset measures supplements → energy directly. Each source answers one link of the chain.</p>
+<div class="chain"><div class="node"><b>Step A</b><div class="n">Taking a vitamin D supplement</div></div>
+<div class="arr"><span>→</span><span>raises blood vitamin D<br>NHANES</span></div>
+<div class="node"><b>Step B</b><div class="n">Higher blood vitamin D</div><div class="m">Many Germans start low — RKI DEGS1</div></div>
+<div class="arr"><span>→</span><span>less fatigue, if you were low<br>PubMed</span></div>
+<div class="node"><b>Step C</b><div class="n">More energy</div></div></div>
+<div class="plain"><b>In plain words</b><p>Supplements raise vitamin D levels. For the many people who start low, this improves energy. People who already have enough vitamin D should not expect more energy.</p></div></div>
+
+<div class="card s4"><h2>A · Do supplements raise vitamin D?</h2><p class="sub">NHANES, USA 2021–23 · % with low vitamin D (30–49 nmol/L)</p><div id="nh"></div>
+<div class="foot"><b>Yes. Supplement users are about 3× less likely to be low.</b><span>5.8% of supplement users vs 15.6% of the whole population (Couch et al., 2026).</span></div></div>
+<div class="card s4"><h2>B · How many people are low?</h2><p class="sub">RKI DEGS1, German adults, n = 6,995 (%)</p><div id="cmp"></div>
+<div class="foot"><b>About 6 in 10 Germans are below the recommended level.</b><span>3 in 10 are clearly deficient (&lt; 30 nmol/L) (Rabenberg et al., 2015).</span></div></div>
+<div class="card s4"><h2>C · Does fixing low vitamin D lift energy?</h2><p class="sub">PubMed RCT, tired adults with low vitamin D · % feeling less tired</p><div id="rct"></div>
+<div class="foot"><b>Yes. 72 of 100 felt less tired vs 50 of 100 on placebo.</b><span>Measured after 4 weeks; p = 0.01 (Nowak et al., 2016).</span></div></div>
+
+<div class="hdr" id="corr">All correlations in the data</div>
+<div class="card s12"><h2>Correlation overview — 18 relationships from the three sources</h2><p class="sub">↑ = rises together · ↓ = opposite direction · — = no relationship. Filter by source.</p>
+<div class="pill" id="cf"></div><div class="tw"><table id="ct"></table></div>
+<div class="foot"><span>NHANES and DEGS1 are surveys → associations only. PubMed RCTs and meta-analyses → cause and effect.</span></div></div>
+
+<div class="card s4"><h2>NHANES · Age ↔ deficiency</h2><p class="sub">% below 30 nmol/L, USA 2011–14</p><div id="c_age"></div>
+<div class="foot"><b>Young adults (20–39) are most at risk.</b><span>Herrick et al. (2019)</span></div></div>
+<div class="card s4"><h2>NHANES · Ethnicity ↔ deficiency</h2><p class="sub">% below 30 nmol/L, USA 2011–14</p><div id="c_eth"></div>
+<div class="foot"><b>Deficiency risk differs strongly by group.</b><span>Herrick et al. (2019)</span></div></div>
+<div class="card s4"><h2>NHANES · No. of supplements ↔ too-high level</h2><p class="sub">% above 125 nmol/L, USA 2021–23</p><div id="c_hi"></div>
+<div class="foot"><b>More supplements ↔ more people above the safe range.</b><span>Couch et al. (2026)</span></div></div>
+
+<div class="card s4"><h2>DEGS1 · Season ↔ vitamin D</h2><p class="sub">% of German adults below 50 nmol/L</p><div id="c_sea"></div>
+<div class="foot"><b>Winter ↔ lower vitamin D.</b><span>Rabenberg et al. (2015); seasonal values as compiled by lab2go (2026).</span></div></div>
+<div class="card s4"><h2>DEGS1 · Factors linked to vitamin D level</h2><p class="sub">Multiple regression, n = 6,995</p><table style="margin-top:6px">
+<tr><td>Winter examination</td><td><span class="b dn">↓ lower</span></td></tr><tr><td>Northern latitude</td><td><span class="b dn">↓ lower</span></td></tr>
+<tr><td>No vitamin D supplement</td><td><span class="b dn">↓ lower</span></td></tr><tr><td>Low sport activity</td><td><span class="b dn">↓ lower</span></td></tr>
+<tr><td>High BMI</td><td><span class="b dn">↓ lower</span></td></tr><tr><td>High media use</td><td><span class="b dn">↓ lower</span></td></tr><tr><td>Sex</td><td><span class="b nt">— no difference</span></td></tr></table>
+<div class="foot"><span>Rabenberg et al. (2015)</span></div></div>
+<div class="card s4"><h2>PubMed · Vitamin D rise ↔ fatigue drop</h2><p class="sub">Fall in fatigue score (FAS points) after 4 weeks</p><div id="c_fas"></div>
+<div class="foot"><b>r = −0.22 (p = 0.02): the more vitamin D rose, the more fatigue fell.</b><span>Nowak et al. (2016)</span></div></div>
+
+<div class="card s6"><h2>PubMed · Effect sizes on energy-related outcomes</h2><p class="sub">Supplement vs placebo · negative = improvement</p><div class="tw"><table style="margin-top:6px">
+<tr><th>Outcome</th><th>Effect</th><th>Meaning</th><th>Source</th></tr>
+<tr><td>Fatigue (FAS)</td><td>−3.3 vs −0.8</td><td><span class="b up">Less fatigue</span></td><td>Nowak et al. (2016)</td></tr>
+<tr><td>Fatigue, 5 RCTs (MS)</td><td>SMD −0.18</td><td><span class="b up">Small, consistent</span></td><td>López-Muñoz et al. (2023)</td></tr>
+<tr><td>Sleep quality (PSQI)</td><td>MD −2.33</td><td><span class="b up">Better sleep</span></td><td>Abboud (2022)</td></tr>
+<tr><td>Fatigue subscales</td><td>p &lt; 0.001</td><td><span class="b up">Less fatigue</span></td><td>Roy et al. (2014)</td></tr></table></div></div>
+<div class="card s6"><h2>PubMed · Low vitamin D ↔ fatigue, and safety</h2><p class="sub">Prevalence and harm signals</p><div class="tw"><table style="margin-top:6px">
+<tr><th>Relationship</th><th>Result</th><th>Source</th></tr>
+<tr><td>Fatigue ↔ low vitamin D</td><td>77.2% of fatigued patients were low</td><td>Roy et al. (2014)</td></tr>
+<tr><td>3,200–4,000 IU/d ↔ hypercalcaemia</td><td><span class="b dn">RR 2.21</span></td><td>Zittermann et al. (2023)</td></tr>
+<tr><td>3,200–4,000 IU/d ↔ falls</td><td><span class="b dn">RR 1.25</span></td><td>Zittermann et al. (2023)</td></tr>
+<tr><td>3,200–4,000 IU/d ↔ hospitalisation</td><td><span class="b dn">RR 1.16</span></td><td>Zittermann et al. (2023)</td></tr></table></div></div>
+
+<div class="card s12"><h2>Who benefits?</h2><p class="sub">The effect depends on your starting vitamin D level</p><div class="tw"><table style="margin-top:8px">
+<tr><th>Starting blood level</th><th>Expected energy benefit</th><th>Evidence</th></tr>
+<tr><td>Deficient (&lt; 30 nmol/L)</td><td><span class="b up">Yes — most likely</span></td><td>Nowak et al. (2016); Roy et al. (2014); Wang et al. (2026)</td></tr>
+<tr><td>Insufficient (30–49 nmol/L)</td><td><span class="b nt">Possible</span></td><td>Wang et al. (2026)</td></tr>
+<tr><td>Enough (≥ 50 nmol/L)</td><td><span class="b dn">No extra benefit</span></td><td>D-Health trial, n = 21,315 (Neale et al., 2022)</td></tr>
+<tr><td>Too high (&gt; 125 nmol/L)</td><td><span class="b am">Risk, not benefit</span></td><td>Couch et al. (2026); Zittermann et al. (2023)</td></tr></table></div></div>
+
+<div class="card s8" id="ev"><h2>Evidence from PubMed</h2><div class="pill" id="flt"></div><div class="tw"><table id="tb"></table></div></div>
+<div class="card s4"><h2>Conclusion</h2><p class="sub">GRADE-inspired rating (Guyatt et al., 2008)</p><div style="margin-top:12px">
+<div class="rate"><div class="ri" style="background:#10B981"></div><div><small>Supplements raise serum vitamin D (Couch et al., 2026)</small><b style="color:#047857">High</b></div></div>
+<div class="rate"><div class="ri" style="background:#6366F1"></div><div><small>Energy improves when a deficiency is corrected (Nowak et al., 2016; López-Muñoz et al., 2023)</small><b style="color:#4F46E5">Moderate</b></div></div>
+<div class="rate"><div class="ri" style="background:#EF4444"></div><div><small>No energy benefit expected in replete adults (Neale et al., 2022; Wang et al., 2026)</small><b style="color:#B91C1C">Low / none</b></div></div>
+<div class="rate"><div class="ri" style="background:#F59E0B"></div><div><small>3,200–4,000 IU/d raises hypercalcaemia risk, RR 2.21 (Zittermann et al., 2023)</small><b style="color:#B45309">Caution</b></div></div>
+<div class="plain" style="margin-top:4px"><p style="margin:0;font-weight:700">Measure first, supplement where needed, let the data decide.</p></div></div></div>
+
+<div class="card s12" id="refs"><h2>References (Harvard)</h2><ol>
+<li>Abboud, M. (2022) 'Vitamin D supplementation and sleep: a systematic review and meta-analysis of intervention studies', <i>Nutrients</i>, 14(5), 1076.</li>
+<li>Couch, C.A., Williams, A.M., Stierman, B., Mineva, E., Pfeiffer, C.M. and Ogden, C.L. (2026) 'Trends in vitamin D status in the United States, 2007–2023: a cross-sectional analysis of data from the National Health and Nutrition Examination Survey', <i>American Journal of Clinical Nutrition</i>, 123(1), 101078.</li>
+<li>Guyatt, G.H. et al. (2008) 'GRADE: an emerging consensus on rating quality of evidence and strength of recommendations', <i>BMJ</i>, 336(7650), pp. 924–926.</li>
+<li>Herrick, K.A. et al. (2019) 'Vitamin D status in the United States, 2011–2014', <i>American Journal of Clinical Nutrition</i>, 110(1), pp. 150–157.</li>
+<li>lab2go (2026) <i>Vitamin D deficiency in Europe — key statistics 2026</i>. Available at: https://www.lab2go.net/en/statistics/vitamin-d-deficiency-europe/ (Accessed: 31 October 2026).</li>
+<li>López-Muñoz, P. et al. (2023) 'Effect of vitamin D supplementation on fatigue in multiple sclerosis: a systematic review and meta-analysis', <i>Nutrients</i>, 15(13), 2861.</li>
+<li>National Library of Medicine (2026) <i>PubMed</i>. Available at: https://pubmed.ncbi.nlm.nih.gov/ (Accessed: 31 October 2026).</li>
+<li>Neale, R.E. et al. (2022) 'The D-Health Trial: a randomised controlled trial of the effect of vitamin D on mortality', <i>The Lancet Diabetes &amp; Endocrinology</i>, 10(2), pp. 120–128.</li>
+<li>Nowak, A. et al. (2016) 'Effect of vitamin D3 on self-perceived fatigue: a double-blind randomized placebo-controlled trial', <i>Medicine</i>, 95(52), e5353.</li>
+<li>Rabenberg, M. et al. (2015) 'Vitamin D status among adults in Germany – results from the German Health Interview and Examination Survey for Adults (DEGS1)', <i>BMC Public Health</i>, 15, 641.</li>
+<li>Roy, S. et al. (2014) 'Correction of low vitamin D improves fatigue: effect of correction of low vitamin D in fatigue study (EViDiF study)', <i>North American Journal of Medical Sciences</i>, 6(8), pp. 396–402.</li>
+<li>Wang, Y. et al. (2026) 'Impact of vitamin D supplementation on all-cause mortality: randomized trials revisited', <i>Clinical Nutrition</i>, 58, 106597.</li>
+<li>Zittermann, A. et al. (2023) 'Long-term supplementation with 3200 to 4000 IU of vitamin D daily and adverse events', <i>European Journal of Nutrition</i>, 62, pp. 1833–1844.</li></ol></div>
+</div></div></main></div>
+<script>
+(function(){
+const $=id=>document.getElementById(id),MUT="#6B7280",LN="#E5E7EB";
+function bars(id,cats,vals,color,mx){const w=520,h=220,p=30,gw=(w-2*p)/cats.length,bw=Math.min(60,gw-30);
+ let s=`<svg viewBox="0 0 ${w} ${h}" width="100%" role="img">`;for(let k=0;k<=4;k++){const y=h-p-(h-2*p-10)*k/4;s+=`<line x1="${p}" x2="${w-p}" y1="${y}" y2="${y}" stroke="${LN}"/>`}
+ cats.forEach((c,i)=>{const v=vals[i],bx=p+i*gw+(gw-bw)/2,bh=v/mx*(h-2*p-10);
+ s+=`<rect x="${bx}" y="${h-p-bh}" width="${bw}" height="${bh}" rx="4" fill="${Array.isArray(color)?color[i]:color}"/><text x="${bx+bw/2}" y="${h-p-bh-6}" font-size="13" font-weight="600" text-anchor="middle">${v}</text><text x="${p+i*gw+gw/2}" y="${h-8}" font-size="12" text-anchor="middle" fill="${MUT}">${c}</text>`});
+ $(id).innerHTML=s+'</svg>'}
+bars('nh',["Whole population","Supplement users"],[15.6,5.8],["#A5B4FC","#4F46E5"],20);
+bars('cmp',["Below 50 (low)","Below 30 (deficient)"],[61.6,30.2],"#4F46E5",75);
+bars('rct',["Vitamin D","Placebo"],[72,50],["#4F46E5","#A5B4FC"],85);
+bars('c_age',["1–5 y","20–39 y","≥ 60 y"],[0.5,7.6,2.9],"#4F46E5",10);
+bars('c_eth',["Black","Asian","Hispanic","White"],[17.5,7.6,5.9,2.1],"#4F46E5",20);
+bars('c_hi',["All","1 supplement","2+ supplements"],[7.6,11.4,30.6],"#F59E0B",35);
+bars('c_sea',["End of winter","Year average","End of summer"],[75,61.6,41],"#4F46E5",85);
+bars('c_fas',["Vitamin D","Placebo"],[3.3,0.8],["#4F46E5","#A5B4FC"],4);
+const CR=[["NHANES","Supplement use","Low vitamin D (30–49 nmol/L)","↓","5.8% vs 15.6%","Association","Couch et al. (2026)"],
+["NHANES","Number of supplements","Vitamin D > 125 nmol/L","↑","all 7.6% · 1 supp. 11.4% · 2+ supp. 30.6%","Association","Couch et al. (2026)"],
+["NHANES","Age","Deficiency (< 30 nmol/L)","peak 20–39","0.5% / 7.6% / 2.9%","Association","Herrick et al. (2019)"],
+["NHANES","Ethnicity","Deficiency (< 30 nmol/L)","varies","17.5% Black vs 2.1% White","Association","Herrick et al. (2019)"],
+["NHANES","Dietary intake / supplements","Inadequacy","↓","lower prevalence","Association","Herrick et al. (2019)"],
+["DEGS1","Winter season","Vitamin D level","↓","~75% vs ~41% below 50","Association","Rabenberg et al. (2015)"],
+["DEGS1","No supplement use","Vitamin D level","↓","significant","Association","Rabenberg et al. (2015)"],
+["DEGS1","Higher BMI","Vitamin D level","↓","significant","Association","Rabenberg et al. (2015)"],
+["DEGS1","Sport activity","Vitamin D level","↑","significant","Association","Rabenberg et al. (2015)"],
+["DEGS1","Northern latitude / media use","Vitamin D level","↓","significant","Association","Rabenberg et al. (2015)"],
+["DEGS1","Sex","Vitamin D level","—","p = 0.47","Association","Rabenberg et al. (2015)"],
+["PubMed","Vitamin D supplement","Fatigue improved","↑","72% vs 50%, OR 2.63","Causal (RCT)","Nowak et al. (2016)"],
+["PubMed","Rise in 25(OH)D","Fatigue score","↓","r = −0.22, p = 0.02","RCT data","Nowak et al. (2016)"],
+["PubMed","Correcting low vitamin D","Fatigue","↓","p < 0.001","Pre/post","Roy et al. (2014)"],
+["PubMed","Vitamin D supplement","Fatigue (MS)","↓","SMD −0.18","Meta-analysis","López-Muñoz et al. (2023)"],
+["PubMed","Vitamin D supplement","Sleep quality","↑","PSQI −2.33","Meta-analysis","Abboud (2022)"],
+["PubMed","Supplement in replete adults","Health outcomes","—","no benefit, n = 21,315","Causal (RCT)","Neale et al. (2022)"],
+["PubMed","High dose (3,200–4,000 IU)","Hypercalcaemia","↑","RR 2.21","Meta-analysis","Zittermann et al. (2023)"]];
+const DC={"↑":"up","↓":"dn","—":"nt"};
+function ct(f){$('ct').innerHTML='<tr><th>Source</th><th>Factor</th><th>Linked to</th><th>Direction</th><th>Result</th><th>Type</th><th>Citation</th></tr>'+CR.filter(r=>f==='all'||r[0]===f).map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td><span class="b ${DC[r[3]]||'am'}">${r[3]}</span></td><td>${r[4]}</td><td>${r[5]}</td><td style="color:#6B7280">${r[6]}</td></tr>`).join('')}
+function pills(id,opts,cb){const d=$(id);opts.forEach(([k,t],i)=>{const b=document.createElement('button');b.type='button';b.textContent=t;if(!i)b.className='on';
+ b.addEventListener('click',()=>{[...d.children].forEach(x=>x.className='');b.className='on';cb(k)});d.appendChild(b)});cb(opts[0][0])}
+pills('cf',[['all','All (18)'],['NHANES','NHANES (5)'],['DEGS1','RKI DEGS1 (6)'],['PubMed','PubMed (7)']],ct);
+const EV=[["Nowak et al. (2016)","RCT, deficient","120","72% vs 50% improved; OR 2.63","Positive","up","def"],["Roy et al. (2014)","Prospective","174","All fatigue subscales improved (p < 0.001)","Positive","up","def"],
+["López-Muñoz et al. (2023)","Meta-analysis, 5 RCTs","345","SMD −0.18 (−0.36 to −0.01)","Small +","up","def"],["Neale et al. (2022)","RCT, replete","21,315","No benefit in replete adults","Null","dn","rep"],
+["Wang et al. (2026)","Trial emulation","237,502","Benefit only if insufficient","Modifier","nt","all"],["Zittermann et al. (2023)","Meta-analysis, safety","12,952","Hypercalcaemia RR 2.21 at 3,200–4,000 IU/d","Safety","am","all"]];
+function tb(f){$('tb').innerHTML='<tr><th>Study</th><th>Design</th><th>n</th><th>Key result</th><th>Direction</th></tr>'+EV.filter(r=>f==='all'||r[6]===f||r[6]==='all').map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td><td><span class="b ${r[5]}">${r[4]}</span></td></tr>`).join('')}
+pills('flt',[['all','All studies'],['def','Deficient populations'],['rep','Replete populations']],tb);
+})();
+</script></body></html>
